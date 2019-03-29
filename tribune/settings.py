@@ -28,12 +28,17 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
 # Application definition
 
 INSTALLED_APPS = [
-    
-    'bootstrap3',# bootstrap
+    'rest_framework.authtoken',
+    'rest_framework',
+    'bootstrap3',
     'news.apps.NewsConfig',# define our applications configurations
     'tinymce',
     'django.contrib.admin',
@@ -42,7 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
+    
 ]
 
 MIDDLEWARE = [
